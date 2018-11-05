@@ -24,7 +24,7 @@ library for markdown parsing. So to build yourself, assuming you have [Golang
 installed](http://golang.org/doc/install):
 
 ```bash
-$ go get https://github.com/CharlesGriswold/lanyon
+$ go get github.com/CharlesGriswold/lanyon
 ```
 
 Once you have the binary built or downloaded, copy it to a directory within your
