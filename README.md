@@ -4,8 +4,8 @@
 Lanyon is a simple web server, which reads directories of markdown files and
 converts them to HTML and serves. An intuitive and easy way to create a website.
 
-Lanyon was derived from my static site generator,
-[Hastie](https://github.com/mkaz/hastie). I grew tired of the multiple steps for
+Lanyon was derived from the static site generator,
+[Hastie](https://github.com/mkaz/hastie). mkaz grew tired of the multiple steps for
 creating, generating and publishing. Plus, using a static site generator has a
 duplicate source tree and generated tree, with some assets in each. Lanyon
 simplifies this with one set of directories with content and assets.
@@ -185,14 +185,14 @@ See [lesscss.org](http://lesscss.org/) for more information.
 
 ## Performance
 
-I think Lanyon will perform quite well on most servers. However, I recommend
-setting up a reverse-proxy caching server such as
+Lanyon should perform quite well on most servers. However, it is
+recommended to set up a reverse-proxy caching server such as
 [Varnish](https://www.varnish-cache.org/) or [nginx](http://nginx.org/) in
 front.  Additionally, you can use a CDN service such as [Amazon
 CloudFront](http://aws.amazon.com/cloudfront/) to further improve serving
 performance and offload load.
 
-I use Lanyon to serve my personal site [mkaz.com](http://mkaz.com) without a
+Lanyon is used to to serve mkaz's personal site [mkaz.com](http://mkaz.com) without a
 proxy cache, but with Amazon CloudFront as a CDN.
 
 ---
@@ -201,7 +201,4 @@ proxy cache, but with Amazon CloudFront as a CDN.
 
 Lanyon is licensed under MIT Open Source license, see LICENSE file for details.
 
-I welcome any comments, suggestions, contributions or just well wishes. Using
-github is probably easiest but if you want, you can email me at marcus@mkaz.com
-or reach me on Twitter at [@mkaz](https://twitter.com/mkaz).
-
+Comments, suggestions, contributions, and well wishes are welcomed.
