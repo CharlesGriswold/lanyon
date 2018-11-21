@@ -4,7 +4,16 @@
 
   <header>
 	  <h2> {{ .Title }} </h2>
-	  {{ if not .Params.nodate }}
+	  {{ if .Params.author }}
+		<h3> {{ .Params.author }} </h3>
+	  {{ end }}
+	  {{ if .Params.keywords }}
+		<p><b>Tags: {{ .Params.keywords }} </b></p>
+	  {{ end }}
+	  {{ if .Params.tags }}
+		<p><b>Tags: {{ .Params.tags }} </b></p>
+	  {{ end }}
+	  {{ if .Params.showdate }}
 		<time pubdate> {{ .Date.Format "January 2, 2006" }}</time>
 	  {{ end }}
   </header>

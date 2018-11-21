@@ -26,6 +26,7 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
+	"path"
 	"path/filepath"
 	"sort"
 	"strings"
@@ -62,10 +63,11 @@ func (p PagesSlice) Limit(n int) PagesSlice { return p[0:n] }
 // Page struct holds all data required for a web page
 // Pages array is used for category pages with list of pages
 type Page struct {
-	Title, Content, Category, Layout, Url string
-	Date                                  time.Time
-	Pages                                 PagesSlice
-	Params                                map[string]string
+	Title, Content, Category, Layout, Url, File string
+	Size                                        int64
+	Date                                        time.Time
+	Pages                                       PagesSlice
+	Params                                      map[string]string
 }
 
 func startup() {
@@ -195,7 +197,7 @@ func getDirectoryListing(dir string) (html string, err error) {
 	for _, fi := range dirlist {
 		f := filepath.Join(dir, fi.Name())
 		ext := filepath.Ext(f)
-		if ext == ".html" || ext == ".md" {
+		if ext == ".html" || ext == ".md" || fi.Mode().IsDir() == true {
 			files = append(files, f)
 		}
 	}
@@ -205,6 +207,13 @@ func getDirectoryListing(dir string) (html string, err error) {
 		pg := readParseFile(f)
 		filename := strings.Replace(f, ".md", ".html", 1)
 		pg.Url = "/" + strings.Replace(filename, config.PublicDir, "", 1)
+		fi, _ := os.Stat(f)
+		if fi.Mode().IsDir() {
+			pg.Size = -1
+		} else {
+			pg.Size = fi.Size()
+		}
+		pg.File = path.Base(pg.Url)
 		page.Pages = append(page.Pages, pg)
 	}
 

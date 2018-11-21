@@ -3,18 +3,30 @@
 <article class="category hentry type-{{.Title}} ">
 
     <header>
-        <h2>{{ .Title }} Archive</h2>
+        <h2>{{ .Title }}</h2>
     </header>
 
     <div class="posts">
+        <table>
         {{ range .Pages }}
-            <div class="post">
-                <span class="date">{{ .Date.Format "02 Jan 2006"  }} &#187; </span>
-                <span class="title"><a href="{{ .Url }}">{{ .Title }}</a></span>
-            </div>
+            {{ if lt .Size 0 }}
+            <tr>
+                <td>📁</td>
+                <td><a href="{{ .Url }}">{{ if .Title }}{{ .Title }}{{ else }}{{ .File }}{{ end }}</a></td>
+            </tr>
+            {{ end }}
+        {{ end }}
+        {{ range .Pages }}
+            {{ if ge .Size 0 }}
+            <tr>
+                <td>{{ .Size  }}</td>
+                <td><a href="{{ .Url }}">{{ if .Title }}{{ .Title }}{{ else }}{{ .File }}{{ end }}</a></td>
+            </tr>
+            {{ end }}
         {{ else }}
             No pages in this directory.
         {{ end }}
+        </table>
     </div>
 
 </article>
