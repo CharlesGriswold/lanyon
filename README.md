@@ -16,9 +16,6 @@ simplifies this with one set of directories with content and assets.
 
 #### Install
 
-Binaries are available in the `binaries` folder for Mac OS X and Linux (amd64).
-You can also build a binary from the available Go source code.
-
 The only dependency for building is the `github.com/russross/blackfriday`
 library for markdown parsing. So to build yourself, assuming you have [Golang
 installed](http://golang.org/doc/install):
@@ -27,8 +24,8 @@ installed](http://golang.org/doc/install):
 $ go get github.com/CharlesGriswold/lanyon
 ```
 
-Once you have the binary built or downloaded, copy it to a directory within your
-path, `~/bin/` or `/usr/local/bin/` are two great spots.
+Once you have the binary built, copy it to a directory within your path, 
+`~/bin/` or `/usr/local/bin/` are two great spots.
 
 
 #### Run Site
